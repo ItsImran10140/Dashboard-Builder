@@ -2,7 +2,6 @@
 
 A React + TypeScript dashboard assignment: draggable and resizable widgets (To‑Do, Weather, Chart, Notes), multi-tab workspace, light/dark theme, undo/redo, JSON import/export, and persistence in the browser via `localStorage`.
 
-Repository: [github.com/ItsImran10140/Dashboard-Builder](https://github.com/ItsImran10140/Dashboard-Builder)
 
 ---
 
