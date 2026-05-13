@@ -1,0 +1,156 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --db-ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --db-duration: 0.18s;
+}
+
+:root,
+:root[data-theme='light'] {
+  --db-page-bg: #f3f2ef;
+  --db-page-mesh: radial-gradient(
+      ellipse 100% 55% at 50% -15%,
+      rgba(79, 70, 229, 0.07),
+      transparent 52%
+    ),
+    radial-gradient(ellipse 70% 40% at 100% 0%, rgba(14, 165, 233, 0.05), transparent 45%), #f3f2ef;
+  --db-text: #141416;
+  --db-text-muted: #5c5c63;
+  --db-surface: #ffffff;
+  --db-surface-muted: #fafaf8;
+  --db-border: rgba(20, 20, 24, 0.09);
+  --db-border-strong: rgba(20, 20, 24, 0.14);
+  --db-header-surface: linear-gradient(180deg, #f7f6f3 0%, #f2f1ed 100%);
+  --db-button-bg: #ffffff;
+  --db-button-hover-bg: #f5f4f1;
+  --db-button-border: rgba(20, 20, 24, 0.11);
+  --db-accent-bg: rgba(79, 70, 229, 0.08);
+  --db-accent-border: rgba(79, 70, 229, 0.22);
+  --db-accent-hover: rgba(79, 70, 229, 0.12);
+  --db-primary: #4f46e5;
+  --db-primary-hover: #4338ca;
+  --db-primary-muted: rgba(79, 70, 229, 0.14);
+  --db-shadow-sm: 0 1px 2px rgba(24, 24, 27, 0.04);
+  --db-shadow-md: 0 4px 16px rgba(24, 24, 27, 0.07), 0 1px 3px rgba(24, 24, 27, 0.04);
+  --db-shadow-lg: 0 20px 48px rgba(24, 24, 27, 0.1), 0 8px 20px rgba(24, 24, 27, 0.05);
+  --db-modal-backdrop: rgba(24, 24, 27, 0.42);
+  --db-focus-ring: rgba(79, 70, 229, 0.35);
+  --db-danger-border: rgba(220, 38, 38, 0.35);
+  --db-danger-text: #b91c1c;
+  --db-danger-bg: rgba(254, 226, 226, 0.55);
+  --db-notes-ring: rgba(245, 158, 11, 0.45);
+  --db-widget-header: linear-gradient(180deg, #f8f7f4 0%, #f3f2ee 100%);
+  --db-selection-bg: rgba(79, 70, 229, 0.18);
+  --db-selection-text: inherit;
+  --db-settings-active-bg: #4f46e5;
+  --db-settings-active-text: #ffffff;
+  --db-settings-active-border: #4338ca;
+}
+
+:root[data-theme='dark'] {
+  --db-page-bg: #0c0c0e;
+  --db-page-mesh: radial-gradient(
+      ellipse 90% 50% at 50% -25%,
+      rgba(99, 102, 241, 0.11),
+      transparent 50%
+    ),
+    radial-gradient(ellipse 60% 35% at 100% 0%, rgba(56, 189, 248, 0.06), transparent 42%), #0c0c0e;
+  --db-text: #e8e8ea;
+  --db-text-muted: #8e8e93;
+  --db-surface: #141416;
+  --db-surface-muted: #18181b;
+  --db-border: rgba(255, 255, 255, 0.07);
+  --db-border-strong: rgba(255, 255, 255, 0.11);
+  --db-header-surface: linear-gradient(180deg, #1a1a1d 0%, #161618 100%);
+  --db-button-bg: #1c1c1f;
+  --db-button-hover-bg: #26262b;
+  --db-button-border: rgba(255, 255, 255, 0.1);
+  --db-accent-bg: rgba(99, 102, 241, 0.14);
+  --db-accent-border: rgba(129, 140, 248, 0.32);
+  --db-accent-hover: rgba(99, 102, 241, 0.22);
+  --db-primary: #a5b4fc;
+  --db-primary-hover: #c7d2fe;
+  --db-primary-muted: rgba(99, 102, 241, 0.2);
+  --db-shadow-sm: 0 1px 0 rgba(255, 255, 255, 0.04) inset, 0 1px 2px rgba(0, 0, 0, 0.45);
+  --db-shadow-md: 0 4px 20px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.04);
+  --db-shadow-lg: 0 24px 56px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.05);
+  --db-modal-backdrop: rgba(0, 0, 0, 0.62);
+  --db-focus-ring: rgba(129, 140, 248, 0.45);
+  --db-danger-border: rgba(248, 113, 113, 0.45);
+  --db-danger-text: #fca5a5;
+  --db-danger-bg: rgba(127, 29, 29, 0.35);
+  --db-notes-ring: rgba(251, 191, 36, 0.35);
+  --db-widget-header: linear-gradient(180deg, #1e1e22 0%, #1a1a1e 100%);
+  --db-selection-bg: rgba(99, 102, 241, 0.28);
+  --db-selection-text: #f4f4f5;
+  --db-settings-active-bg: #6366f1;
+  --db-settings-active-text: #fafafa;
+  --db-settings-active-border: #818cf8;
+}
+
+html {
+  overflow-x: clip;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100%;
+  font-family:
+    'Inter',
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    Roboto,
+    'Helvetica Neue',
+    Arial,
+    sans-serif;
+  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  overflow-x: clip;
+  overflow-y: auto;
+  background-color: var(--db-page-bg);
+  background-image: var(--db-page-mesh);
+  background-attachment: fixed;
+  color: var(--db-text);
+}
+
+@media (max-width: 520px) {
+  html {
+    font-size: 106.25%;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+}
+
+::selection {
+  background: var(--db-selection-bg);
+  color: var(--db-selection-text);
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

@@ -1,0 +1,19 @@
+.app {
+  min-height: 100vh;
+  background: transparent;
+  color: var(--db-text);
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 1024px) {
+  .app {
+    padding: 14px;
+  }
+}
+
+@media (max-width: 520px) {
+  .app {
+    padding: 12px;
+  }
+}
